@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.crm.qa.base.TestBase;
 
 public class HomePage extends TestBase {
-	Actions act = new Actions(driver);
+	
 
 	@FindBy(xpath = "//span[contains(text(), 'Sukhwinder Singh')]")
 	WebElement userNameLabel;
@@ -57,7 +57,7 @@ public class HomePage extends TestBase {
 	}
 	
 	public ContactsPage clickOnNewContactsLink() {
-		
+		Actions act = new Actions(driver);
 		act.moveToElement(homeIcon).build().perform();
 		newContactPlusIcon.click();
 		return new ContactsPage();
