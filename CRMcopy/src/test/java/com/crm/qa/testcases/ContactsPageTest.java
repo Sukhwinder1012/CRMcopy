@@ -27,13 +27,19 @@ public class ContactsPageTest extends TestBase {
 			loginPage = new LoginPage();
 			contactsPage = new ContactsPage();
 			homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-			contactsPage = homePage.clickOnContactsLink();
+			
 	}
 	
 	@Test
 	public void verifyContactsLabelTest() {
+		contactsPage = homePage.clickOnContactsLink();
 		Boolean contactsLabel = contactsPage.verifyContactsLabel();
 		Assert.assertTrue(contactsLabel);
+	}
+	
+	@Test
+	public void validateCreateNewContact() {
+		homePage.clickOnNewContactsLink();
 	}
 	
 	

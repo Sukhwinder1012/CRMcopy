@@ -17,8 +17,11 @@ public class ContactsPage extends TestBase {
 	@FindBy(name = "last_name")
 	WebElement lastName;
 	
-	@FindBy(xpath = "//input[contains((@class,'search') and (@type,'text')]")
+	@FindBy(xpath = "//input[@class='search' and @type='text']")
 	WebElement company;
+	
+	@FindBy(xpath = "//button[contains(text(),'Save')]")
+	WebElement saveButton;
 	
 	//Initializing the page objects:
 		public ContactsPage() {
@@ -30,8 +33,11 @@ public class ContactsPage extends TestBase {
 		return contactLabel.isDisplayed();
 	}
 	
-	public void createNewContact() {
-		
+	public void createNewContact(String ftName, String ltName, String comp) {
+		firstName.sendKeys(ftName);
+		lastName.sendKeys(ltName);
+		company.sendKeys(comp);
+		saveButton.click();
 	}
 	
 	
